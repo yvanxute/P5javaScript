@@ -79,3 +79,9 @@ const Citation = {
           return (this.randomDebutCitation + " " + this.randomMilieuCitation + " " + this.randomFinCitation); // si 3 const
     }
 };
+
+function generate_random(max) {
+    return Math.floor((Math.random() * max) + 1);
+}
+// retour un entier aleatoir de 1 à max
+
