@@ -61,3 +61,21 @@ const finCitation =[
     "ou ça fait quinze ans qu'il me prend pour un con ?",
     "mettez-vous à la place des ennemis, c'est désespérant."
 ];
+const Citation = {
+
+    init: function(randomDebutCitation, randomMilieuCitation, randomMilieuCitation2, randomFinCitation) {
+        this.randomDebutCitation = randomDebutCitation;
+        this.randomMilieuCitation = randomMilieuCitation;
+        this.randomFinCitation = randomFinCitation;
+        if (randomMilieuCitation2) {
+            this.randomMilieuCitation2 = randomMilieuCitation2;
+        } // si 4 constiables
+    },
+    // Renvoie la description de Citation avec 3 ou 4 constantes
+    decrire: function() {
+        if (this.randomMilieuCitation2) {
+            return (this.randomDebutCitation + " " + this.randomMilieuCitation + " " + this.randomMilieuCitation2 + " " + this.randomFinCitation); // si 4 const
+        } else
+          return (this.randomDebutCitation + " " + this.randomMilieuCitation + " " + this.randomFinCitation); // si 3 const
+    }
+};
