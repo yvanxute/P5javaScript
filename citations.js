@@ -14,7 +14,8 @@ const debutCitation = [
     "C’est vrai ce qu’on dit, ",
     "Nouvelle technique : on passe pour des cons, les autres se marrent, et on frappe, "
 ];
-const milieuCitation =[
+
+const milieuCitation = [
     " une heure que j'crapahute dans tout le château avec ma bougie, ",
     " alors préparer une potion de polymorphie… ",
     " ça devient débile, ",
@@ -31,7 +32,8 @@ const milieuCitation =[
     "vous êtes un grand malade mental, ",
     " l'incident n'a fait aucune victime, "
 ];
-const milieuCitation2 =[
+
+const milieuCitation2 = [
     " et nous, pauvres âmes chagrines, nous perdons notre regard dans l'horizon blanc de notre solitude, ",
     " finalement c'est pas des démons, ",
     " c'est juste les pires bestioles de tout l'univers, ",
@@ -45,7 +47,8 @@ const milieuCitation2 =[
     " on revient vous voir et 5 minutes après on retourne se mettre sur la gueule, ",
     " je lui ouvre le bide de là à là, j'lui sors les boyaux et je file sa langue à bouffer aux chiens, "
 ];
-const finCitation =[
+
+const finCitation = [
     "c'est clair, ça ?",
     "ça va bien, maintenant !",
     "permettez-moi d'avoir des doutes.",
@@ -61,6 +64,10 @@ const finCitation =[
     "ou ça fait quinze ans qu'il me prend pour un con ?",
     "mettez-vous à la place des ennemis, c'est désespérant."
 ];
+
+// Todo Methode de récupération de data pour utiliser data.json à la place des const ci-dessus
+
+
 const Citation = {
 
     init: function(randomDebutCitation, randomMilieuCitation, randomMilieuCitation2, randomFinCitation) {
@@ -85,3 +92,10 @@ function generate_random(max) {
 }
 // retour un entier aleatoir de 1 à max
 
+
+// Création des variables html
+var phrase1 = document.getElementById("phrase1"),
+    phrase2 = document.getElementById("phrase2"),
+    phrase3 = document.getElementById("phrase3");
+
+// Appel d'une méthode pour mettre les résultat d'une phrase au hazar dans la variable html
