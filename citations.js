@@ -130,7 +130,8 @@ const Citation = {
         ]
     },
     dom: {
-        result: document.getElementById('result')
+        result: document.getElementById('result'),
+        result1: document.getElementById('result1'),
     },
     methods: {
         // Renvoie la description de Citation avec 3 ou 4 constantes
@@ -154,9 +155,42 @@ const Citation = {
             if (randomMilieuCitation2) {
                 secondElement2 = Citation.methods.selectIndexCitation(randomMilieuCitation2, randomMilieuCitation2.length);
             }
+            
             var maGlobalCitation = Citation.methods.formatGlobalCitaion(firstElement, secondElement, secondElement2, finalElement);
+           
             console.log('citation : ', maGlobalCitation)
             Citation.dom.result.innerHTML = maGlobalCitation;
+
+            
+        },
+    },
+    methods: {
+        // Renvoie la description de Citation avec 3 ou 4 constantes
+        formatGlobalCitaion2: function(el1, el2, el3,el4) {
+            if (el3) {
+                return (el1 + " " + el2 + " " + el3 + " " + el4); // si 4 morceaux
+            } else
+            return (el1 + " " + el2 + " " + el4); // sinon  3 morceaux
+        },
+        // retour un entier aleatoir de 1 à max
+        selectIndexCitation2: function(citationArray, max) {
+            var index =  Math.floor((Math.random() * max) );
+            return citationArray[index];
+        },
+        init: function(randomDebutCitation, randomMilieuCitation, randomMilieuCitation2, randomFinCitation) {
+            
+            var firstElement = Citation.methods.selectIndexCitation2(randomDebutCitation, randomDebutCitation.length),
+                secondElement = Citation.methods.selectIndexCitation2(randomMilieuCitation, randomMilieuCitation.length),
+                finalElement = Citation.methods.selectIndexCitation2(randomFinCitation, randomFinCitation.length);
+            // si 4 morceaux
+            if (randomMilieuCitation2) {
+                secondElement2 = Citation.methods.selectIndexCitation2(randomMilieuCitation2, randomMilieuCitation2.length);
+            }
+            
+            var maGlobalCitation2 = Citation.methods.formatGlobalCitaion2(firstElement, secondElement, secondElement2, finalElement);
+
+            console.log('citation : ', maGlobalCitation2);
+            Citation.dom.result1.innerHTML = maGlobalCitation2;
         },
     },
 
