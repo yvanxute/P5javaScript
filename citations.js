@@ -158,13 +158,13 @@ const Citation = {
             
             var maGlobalCitation = Citation.methods.formatGlobalCitaion(firstElement, secondElement, secondElement2, finalElement);
            
-            console.log('citation : ', maGlobalCitation)
+            console.log('citation : ', maGlobalCitation),
             Citation.dom.result.innerHTML = maGlobalCitation;
 
             
         },
     },
-    methods: {
+    methods2: {
         // Renvoie la description de Citation avec 3 ou 4 constantes
         formatGlobalCitaion2: function(el1, el2, el3,el4) {
             if (el3) {
@@ -179,15 +179,15 @@ const Citation = {
         },
         init: function(randomDebutCitation, randomMilieuCitation, randomMilieuCitation2, randomFinCitation) {
             
-            var firstElement = Citation.methods.selectIndexCitation2(randomDebutCitation, randomDebutCitation.length),
-                secondElement = Citation.methods.selectIndexCitation2(randomMilieuCitation, randomMilieuCitation.length),
-                finalElement = Citation.methods.selectIndexCitation2(randomFinCitation, randomFinCitation.length);
+            var firstElement = Citation.methods2.selectIndexCitation2(randomDebutCitation, randomDebutCitation.length),
+                secondElement = Citation.methods2.selectIndexCitation2(randomMilieuCitation, randomMilieuCitation.length),
+                finalElement = Citation.methods2.selectIndexCitation2(randomFinCitation, randomFinCitation.length);
             // si 4 morceaux
             if (randomMilieuCitation2) {
-                secondElement2 = Citation.methods.selectIndexCitation2(randomMilieuCitation2, randomMilieuCitation2.length);
+                secondElement2 = Citation.methods2.selectIndexCitation2(randomMilieuCitation2, randomMilieuCitation2.length);
             }
             
-            var maGlobalCitation2 = Citation.methods.formatGlobalCitaion2(firstElement, secondElement, secondElement2, finalElement);
+            var maGlobalCitation2 = Citation.methods2.formatGlobalCitaion2(firstElement, secondElement, secondElement2, finalElement);
 
             console.log('citation : ', maGlobalCitation2);
             Citation.dom.result1.innerHTML = maGlobalCitation2;
@@ -204,3 +204,8 @@ Citation.methods.init(
     Citation.data.milieuCitation2,
     Citation.data.finCitation);
 
+    Citation.methods2.init(
+        Citation.data.debutCitation,
+        Citation.data.milieuCitation,
+        Citation.data.milieuCitation2,
+        Citation.data.finCitation);
