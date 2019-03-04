@@ -98,20 +98,6 @@ const Citation = {
             "vous êtes un grand malade mental, ",
             " l'incident n'a fait aucune victime, "
         ],
-        milieuCitation2 : [
-            " et nous, pauvres âmes chagrines, nous perdons notre regard dans l'horizon blanc de notre solitude, ",
-            " finalement c'est pas des démons, ",
-            " c'est juste les pires bestioles de tout l'univers, ",
-            " dès qu'il y a du dessert, ",
-            " déjà, hein, il avait une coupe à la con mais c'était plutôt aplati et puis il était pas vaporeux, ",
-            " vous êtes le fils d’un démon et d’une pucelle ? ",
-            " ah non, ça c’est que nous, parce qu’il faut être capable de passer pour des cons en un temps record. ",
-            " la Table ronde, ",
-            " j'ai arbitré un peu sec, ",
-            " il est vraiment druide, c'mec-là, ",
-            " on revient vous voir et 5 minutes après on retourne se mettre sur la gueule, ",
-            " je lui ouvre le bide de là à là, j'lui sors les boyaux et je file sa langue à bouffer aux chiens, "
-        ],
         finCitation : [
             "c'est clair, ça ?",
             "ça va bien, maintenant !",
@@ -131,69 +117,30 @@ const Citation = {
     },
     dom: {
         result: document.getElementById('result'),
-        result1: document.getElementById('result1'),
     },
     methods: {
-        // Renvoie la description de Citation avec 3 ou 4 constantes
-        formatGlobalCitaion: function(el1, el2, el3,el4) {
-            if (el3) {
-                return (el1 + " " + el2 + " " + el3 + " " + el4); // si 4 morceaux
-            } else
-            return (el1 + " " + el2 + " " + el4); // sinon  3 morceaux
+        // Renvoie la description de Citation avec 3 constantes
+        formatGlobalCitaion: function(el1, el2, el3) {
+            
+            return (el1 + " " + el2 + " " + el3); // sinon  3 morceaux
         },
         // retour un entier aleatoir de 1 à max
         selectIndexCitation: function(citationArray, max) {
             var index =  Math.floor((Math.random() * max) );
             return citationArray[index];
         },
-        init: function(randomDebutCitation, randomMilieuCitation, randomMilieuCitation2, randomFinCitation) {
+        init: function(randomDebutCitation, randomMilieuCitation, randomFinCitation) {
             
             var firstElement = Citation.methods.selectIndexCitation(randomDebutCitation, randomDebutCitation.length),
                 secondElement = Citation.methods.selectIndexCitation(randomMilieuCitation, randomMilieuCitation.length),
                 finalElement = Citation.methods.selectIndexCitation(randomFinCitation, randomFinCitation.length);
-            // si 4 morceaux
-            if (randomMilieuCitation2) {
-                secondElement2 = Citation.methods.selectIndexCitation(randomMilieuCitation2, randomMilieuCitation2.length);
-            }
             
-            var maGlobalCitation = Citation.methods.formatGlobalCitaion(firstElement, secondElement, secondElement2, finalElement);
-           
+            
+            var maGlobalCitation = Citation.methods.formatGlobalCitaion(firstElement, secondElement, finalElement);
             console.log('citation : ', maGlobalCitation),
             Citation.dom.result.innerHTML = maGlobalCitation;
-
-            
-        },
-    },
-    methods2: {
-        // Renvoie la description de Citation avec 3 ou 4 constantes
-        formatGlobalCitaion2: function(el1, el2, el3,el4) {
-            if (el3) {
-                return (el1 + " " + el2 + " " + el3 + " " + el4); // si 4 morceaux
-            } else
-            return (el1 + " " + el2 + " " + el4); // sinon  3 morceaux
-        },
-        // retour un entier aleatoir de 1 à max
-        selectIndexCitation2: function(citationArray, max) {
-            var index =  Math.floor((Math.random() * max) );
-            return citationArray[index];
-        },
-        init: function(randomDebutCitation, randomMilieuCitation, randomMilieuCitation2, randomFinCitation) {
-            
-            var firstElement = Citation.methods2.selectIndexCitation2(randomDebutCitation, randomDebutCitation.length),
-                secondElement = Citation.methods2.selectIndexCitation2(randomMilieuCitation, randomMilieuCitation.length),
-                finalElement = Citation.methods2.selectIndexCitation2(randomFinCitation, randomFinCitation.length);
-            // si 4 morceaux
-            if (randomMilieuCitation2) {
-                secondElement2 = Citation.methods2.selectIndexCitation2(randomMilieuCitation2, randomMilieuCitation2.length);
-            }
-            
-            var maGlobalCitation2 = Citation.methods2.formatGlobalCitaion2(firstElement, secondElement, secondElement2, finalElement);
-
-            console.log('citation : ', maGlobalCitation2);
-            Citation.dom.result1.innerHTML = maGlobalCitation2;
-        },
-    },
-
+        }
+    }
 };
 
 // retour un entier aleatoir de 1 à max
@@ -201,11 +148,5 @@ const Citation = {
 Citation.methods.init(
     Citation.data.debutCitation,
     Citation.data.milieuCitation,
-    Citation.data.milieuCitation2,
-    Citation.data.finCitation);
-
-    Citation.methods2.init(
-        Citation.data.debutCitation,
-        Citation.data.milieuCitation,
-        Citation.data.milieuCitation2,
-        Citation.data.finCitation);
+    Citation.data.finCitation
+);
