@@ -1,0 +1,1 @@
+Citation.dom.result.innerHTML = maGlobalCitation;
