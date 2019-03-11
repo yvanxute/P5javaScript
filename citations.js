@@ -68,8 +68,9 @@ const Citation = {
             var index = Math.floor((Math.random() * max));
             return citationArray[index];
         },
-        test: function () {
-            var nbCit = Citation.dom.nbCit.value;
+        nbCit: function () {
+            var nbCit = Citation.dom.nbCit.value,
+                nbCit = document.getElementById("nbCit");
             console.log('test : ', nbCit);
 
         },
@@ -93,7 +94,7 @@ const Citation = {
         init: function () {
 
             let nbCit; // let nbCit => 5 choix possibles, générer de 1 à 5 citations
-            var nbCit = document.getElementById("nbCit");
+            
                 
             while (nbCit !== "0") {
                 console.log("1 : Générer 1 citation : ");
@@ -134,14 +135,8 @@ const Citation = {
 
 // retour un entier aleatoir de 1 à max
 
-Citation.methods.maGlobalGeneration(
+Citation.methods.globalGeneration(
     Citation.data.debutCitation,
     Citation.data.milieuCitation,
     Citation.data.finCitation
 );
-
-//= function () { init() }
-
-//function myFunction() {
-    //var x = document.getElementById("nbCit");
-//}
