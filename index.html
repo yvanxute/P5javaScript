@@ -11,7 +11,9 @@
 <body>
     <h1>Step 2</h1>
     <label for="nbCitation">Nombre de citation souhaite : </label>
-    <input type="number" id="nbCit">
+    <input type="number" id="nbCit" onchange="Citation.methods.init()">
+    <p id="conditions">Condition ?</p>
+    <p id="error"></p>
     <div id="result"></div>
     <script type="text/javascript" src="./citations.js"></script>
 </body>
