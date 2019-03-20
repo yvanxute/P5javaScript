@@ -139,3 +139,5 @@ const Citation = {
         }
     }
 };
+// pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2 
+// crée un nouveau dom et donnée le choix a l'utilisateur pour le dom 
