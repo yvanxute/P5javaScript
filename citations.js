@@ -50,11 +50,15 @@ const Citation = {
             "mais en même temps…",
             "ou ça fait quinze ans qu'il me prend pour un con ?",
             "mettez-vous à la place des ennemis, c'est désespérant."
+        ],
+        error: [
+            "oups désolé vous ne respecter pas les conditions",
         ]
     },
     dom: {
         result: document.getElementById('result'),
-        nbCit: null
+        nbCit: null,
+        error: document.getElementById('error')
     },
     methods: {
         // Renvoie la description de Citation avec 3 constantes
@@ -78,79 +82,87 @@ const Citation = {
             // le nouvel element qui prend son contenu
             var maGlobalCitation = Citation.methods.formatGlobalCitation(firstElement, secondElement, finalElement);
             divHtml.innerHTML = maGlobalCitation,
-            
-            // Le nouvel element est ajouter dans le dom
-            console.log('child : ', divHtml);
+
+                // Le nouvel element est ajouter dans le dom
+                console.log('child : ', divHtml);
             Citation.dom.result.append(divHtml);
 
         },
-        updateNbCit : function() {
+        updateNbCit: function () {
             // récupération la valeur
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
 
         },
-        verifValue : function(el) {
-            console.log('verifValue el est : ', el)
-            if (el > 0 && el <= 5) { // nbCit saisie par l' utilisateur est compris entre 1 et 5
-                console.log('Conditions respectés, Gagné la valeur actuel est : ', el)
-            } else {
-                console.log('Perdu, la valeur est : ', el)
+        verifValue: function (el) {
+            var divHtml2 = document.createElement('div');
+            var errorHtml = Citation.data.error;
+            divHtml2.innerHTML = errorHtml,
+                console.log('verifValue el est : ', el)
+            if (el < 1) {
+                return console.log('error : ', divHtml2),
+                    Citation.dom.error.append(divHtml2);
+            }
+            if (el > 5) {
+                return console.log('error : ', divHtml2),
+                    Citation.dom.error.append(divHtml2);
             }
         },
+
         init: function () {
 
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
             Citation.methods.verifValue(maValue)
-            console.log('maValue', maValue)
+            console.log('maValue', maValue);
 
             // On cré autant de fois que necéssaire la citation et on l'insere dans notre cible
 
-        //     let nbCit; // let nbCit => 5 choix possibles, générer de 1 à 5 citations
             
-                
-        //     while (nbCit !== "0") {
-        //         console.log("1 : Générer 1 citation : ");
-        //         console.log("2 : Générer 2 citations : ");
-        //         console.log("3 : Générer 3 citations : ");
-        //         console.log("4 : Générer 4 citations : ");
-        //         console.log("5 : Générer 5 citations : ");
-        //         console.log("0 : Quitter");
-        //         const nbCit = prompt("Choisissez une option : ");
 
-        //         if (nbCit > 0 && nbCit <= 5) { // nbCit saisie par l' utilisateur est compris entre 1 et 5
-        //             const maGlobalCitation = prompt("Saississez 3 pour une (des) citation(s) à 3 variables, 4 pour 4 variables :"); // choix du nombre de constiables
-        //             if (maGlobalCitation == 3 || maGlobalCitation == 4) { // 2 choix possibles : générer 1 ou plusieurs citations à 3 (saisir 3) ou 4 (saisir 4) constiables
-        //                 const maGlobalCitation = generationCitation(nbCit, maGlobalCitation);
-        //                 for (let i = 0; i < let ;i ++) {
-        //                     const maGlobalCitation = citation[i];
-        //                     console.log("Voici la citation " + (i + 1) + " : ");
-        //                     console.log(citation.selectIndexCitation());
-        //                 }
-        //             } else { // si l'utilisateur choisit autre chose que 3 ou 4 constantes (chiffre autre que 3 ou 4, lettre,....)
-        //                 console.log("Vous avez saisi un autre chiffre que 3 ou 4, le programme ne peut générer vo(s)tre citation(s) !");
-        //             };
-        //         }
-        //         if ((nbCit > 5) || (nbCit !== 'numbers')) { //si la nbCit saisie par l'utilisateur est supérieur à 5 ou n'est pas un chiffre
-        //             console.log("Veuillez saisir un chiffre entre 1 et 5 pour générer des citations ou 0 pour quitter.");
-        //         }
-        //         if (nbCit === 0) { // quitte le programme si la nbCit saisie par l' utilisateur est 0
-        //             console.log("Au revoir !");
-        //             break;
-        //         };
+            //     let nbCit; // let nbCit => 5 choix possibles, générer de 1 à 5 citations
 
-        //         // Création de la fonction propre de la récupération et la vérification du nombre de citation
-        //         // Créer la boucle pour afficher les citations
-        //     }
+
+            //     while (nbCit !== "0") {
+            //         console.log("1 : Générer 1 citation : ");
+            //         console.log("2 : Générer 2 citations : ");
+            //         console.log("3 : Générer 3 citations : ");
+            //         console.log("4 : Générer 4 citations : ");
+            //         console.log("5 : Générer 5 citations : ");
+            //         console.log("0 : Quitter");
+            //         const nbCit = prompt("Choisissez une option : ");
+
+            //         if (nbCit > 0 && nbCit <= 5) { // nbCit saisie par l' utilisateur est compris entre 1 et 5
+            //             const maGlobalCitation = prompt("Saississez 3 pour une (des) citation(s) à 3 variables, 4 pour 4 variables :"); // choix du nombre de constiables
+            //             if (maGlobalCitation == 3 || maGlobalCitation == 4) { // 2 choix possibles : générer 1 ou plusieurs citations à 3 (saisir 3) ou 4 (saisir 4) constiables
+            //                 const maGlobalCitation = generationCitation(nbCit, maGlobalCitation);
+            //                 for (let i = 0; i < let ;i ++) {
+            //                     const maGlobalCitation = citation[i];
+            //                     console.log("Voici la citation " + (i + 1) + " : ");
+            //                     console.log(citation.selectIndexCitation());
+            //                 }
+            //             } else { // si l'utilisateur choisit autre chose que 3 ou 4 constantes (chiffre autre que 3 ou 4, lettre,....)
+            //                 console.log("Vous avez saisi un autre chiffre que 3 ou 4, le programme ne peut générer vo(s)tre citation(s) !");
+            //             };
+            //         }
+            //         if ((nbCit > 5) || (nbCit !== 'numbers')) { //si la nbCit saisie par l'utilisateur est supérieur à 5 ou n'est pas un chiffre
+            //             console.log("Veuillez saisir un chiffre entre 1 et 5 pour générer des citations ou 0 pour quitter.");
+            //         }
+            //         if (nbCit === 0) { // quitte le programme si la nbCit saisie par l' utilisateur est 0
+            //             console.log("Au revoir !");
+            //             break;
+            //         };
+
+            //         // Création de la fonction propre de la récupération et la vérification du nombre de citation
+            //         // Créer la boucle pour afficher les citations
+            //     }
         }
     }
 };
 
 // retour un entier aleatoir de 1 à max
 
-// Citation.methods.generationCitation(
-//     Citation.data.debutCitation,
-//     Citation.data.milieuCitation,
-//     Citation.data.finCitation
-// );
-
+Citation.methods.generationCitation(
+    Citation.data.debutCitation,
+    Citation.data.milieuCitation,
+    Citation.data.finCitation
+);
