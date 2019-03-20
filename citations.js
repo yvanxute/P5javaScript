@@ -51,9 +51,6 @@ const Citation = {
             "ou ça fait quinze ans qu'il me prend pour un con ?",
             "mettez-vous à la place des ennemis, c'est désespérant."
         ],
-        error: [
-            "oups désolé vous ne respecter pas les conditions",
-        ]
     },
     dom: {
         result: document.getElementById('result'),
@@ -75,27 +72,31 @@ const Citation = {
             var firstElement = Citation.methods.selectIndexCitation(randomDebutCitation, randomDebutCitation.length),
                 secondElement = Citation.methods.selectIndexCitation(randomMilieuCitation, randomMilieuCitation.length),
                 finalElement = Citation.methods.selectIndexCitation(randomFinCitation, randomFinCitation.length);
-            
+
             var maGlobalCitation = Citation.methods.formatGlobalCitation(firstElement, secondElement, finalElement);
             return maGlobalCitation;
-            
+
         },
         updateNbCit: function () {
             // récupération la valeur
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
         },
         verifValue: function (el) {
-            
-            Citation.dom.error.innerHTML= '';
+
+            Citation.dom.error.innerHTML = '';
             var result = null;
-            var message= "";
+            // Avant de commencé le traitement nous ecrasons les données de l'ancienne demande pour repartir sur de bonne base 
+            var message = "";
+            // Si la valeur et inferieur ou egale a 0 alors nous avons un message 
             if (el <= 0) {
                 console.log('error : ', el);
                 message = 'Il y a un probleme la valeur est inférieur à 1';
                 result = false;
-            }else if (el > 5) {
+                // Sinon si la valeur et superieur a 5 nous ne somme dans les conditions demandé un message d'erreur en retour 
+            } else if (el > 5) {
                 message = 'Il y a un probleme la valeur est supérieur à 5';
                 result = false;
+                // Sinon nous somme dans les conditions demandé entre 1 et 5 
             } else {
                 message = 'Condition respecté';
                 result = true;
@@ -108,23 +109,30 @@ const Citation = {
 
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
-            var result= Citation.methods.verifValue(maValue);
+            var result = Citation.methods.verifValue(maValue);
             console.log('result', result);
+            // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
             if (result) {
                 console.log("je commence a traité la demande");
-                Citation.dom.result= '';
-
-                for(i = 0; i < maValue; i++){
+                // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
+                Citation.dom.result = '';
+                // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
+                for (i = 0; i < maValue; i++) {
+                    // La divHtml va alors crée une nouvel div pour chaque citatition 
                     var divHtml = document.createElement('div');
+                    // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
+                    // qui est allimenté par mes tableau de debut, milieu et fin de citation
                     var citation = Citation.methods.generationCitation(
                         Citation.data.debutCitation,
                         Citation.data.milieuCitation,
                         Citation.data.finCitation
-                        );
+                    );
                     divHtml.innerHTML = citation;
+                    // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
                     divHtml.setAttribute("id", "citation" + i)
                     document.getElementById('result').append(divHtml);
                 };
+                // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
             } else {
                 console.log("verifValue n'est pas conforme")
             }
