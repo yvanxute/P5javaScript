@@ -117,7 +117,7 @@ const Citation = {
 
             // On cré autant de fois que necéssaire la citation et on l'insere dans notre cible
             var geneCitation = Citation.methods.verifValue();
-            divHtml.innerHTML = maGlobalCitation;
+            divHtml.innerHTML = geneCitation,
             for(i = 0; i< maValue; i++){
                 console.log('resulta : ', divHtml),
                 Citation.dom.result.append(divHtml)
