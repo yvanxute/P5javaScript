@@ -102,7 +102,7 @@ const Citation = {
                 return console.log('error : ', divHtml2),
                     Citation.dom.error.append(divHtml2);
             }
-            if (el > 5) {
+            else if (el > 5) {
                 return console.log('error : ', divHtml2),
                     Citation.dom.error.append(divHtml2);
             }
