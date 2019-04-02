@@ -2,8 +2,8 @@
 // reconstruction de l'object avec les methods et les datas
 const Citation = {
     data: {
-        //creation d'un tableau de sport pour exemple 
-        sport: {
+        //creation d'un tableau de kaamelot pour exemple 
+        kaamelot: {
             debutCitation: [
                 "Oh, mais c'est pas vrai, ",
                 "Merlin, i'sait déjà pas monter des blancs en neige, ",
@@ -54,8 +54,8 @@ const Citation = {
                 "mettez-vous à la place des ennemis, c'est désespérant."
             ],
         },
-        // creation d'un second tableau culture exemple 
-        culture: {
+        // creation d'un second tableau star wars exemple 
+        starWars: {
             debutCitation: [
                 "Oh, mais c'est pas vrai, ",
                 "Merlin, i'sait déjà pas monter des blancs en neige, ",
@@ -161,14 +161,21 @@ const Citation = {
             return result;
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
-        checkvalue: function(el){
+        checkvalue: function (el) {
 
             console.log("la fonction choisi et ", el);
 
         },
+        // création de l'autotab
+        autoTab: function (box, longueur, texte) {
+
+            if (texte.length > longueur - 1) {
+                document.getElementById('TB' + box).focus();
+            }
+        },
 
         init: function () {
-
+            document.getElementById('result').append("");
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
             var result = Citation.methods.verifValue(maValue);
@@ -185,9 +192,9 @@ const Citation = {
                     // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
                     // qui est allimenté par mes tableau de debut, milieu et fin de citation
                     var citation = Citation.methods.generationCitation(
-                        Citation.data.debutCitation,
-                        Citation.data.milieuCitation,
-                        Citation.data.finCitation
+                        Citation.data.kaamelot.debutCitation,
+                        Citation.data.kaamelot.milieuCitation,
+                        Citation.data.kaamelot.finCitation
                     );
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
@@ -201,5 +208,5 @@ const Citation = {
         }
     }
 };
-// pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2 
+// pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2
 // crée un nouveau dom et donnée le choix a l'utilisateur pour le dom 
