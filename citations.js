@@ -169,13 +169,13 @@ const Citation = {
                 message = 'merci de bien vouloir choisir un generateur';
                 result = false;
                 
-            } else if (el = kaamelot){
+            } else if (el = kaamelot) {
                 console.log("la fonction choisi et ", el);
-                message ='bravo maintenant merci de bien choisir le nombre de citation a generer'
+                message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 result = true;
-            } else (el = starWars){
+            } else (el = starWars) {
                 console.log("la fonction choisi et ", el);
-                message ='bravo maintenant merci de bien choisir le nombre de citation a generer'
+                message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 result = true;
             }
              return result;
