@@ -175,7 +175,8 @@ const Citation = {
         },
 
         init: function () {
-            document.getElementById('result').append("");
+            divHtml = "";
+            citation = "";
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
             var result = Citation.methods.verifValue(maValue);
