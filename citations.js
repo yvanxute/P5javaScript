@@ -162,8 +162,23 @@ const Citation = {
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
-
-            console.log("la fonction choisi et ", el);
+            var result = null;
+            var message = "";
+            if(el = debut){
+                console.log("merci de choisir un generateur  ", el);
+                message = 'merci de bien vouloir choisir un generateur';
+                result = false;
+                
+            } else if (el = kaamelot){
+                console.log("la fonction choisi et ", el);
+                message ='bravo maintenant merci de bien choisir le nombre de citation a generer'
+                result = true;
+            } else (el = starWars){
+                console.log("la fonction choisi et ", el);
+                message ='bravo maintenant merci de bien choisir le nombre de citation a generer'
+                result = true;
+            }
+             return result;
 
         },
         // création de l'autotab
