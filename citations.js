@@ -162,25 +162,29 @@ const Citation = {
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
-            var result = null;
-            var message = "";
-            if(el = debut){
+            
+            console.log(el)
+            if(el = 'debut'){
                 console.log("merci de choisir un generateur  ", el);
-                message = 'merci de bien vouloir choisir un generateur';
-                result = false;
+                // message = 'merci de bien vouloir choisir un generateur';
+                // result = false;
                 
-            } else if (el = kaamelot) {
+            } else if (el = 'kaamelot') {
                 console.log("la fonction choisi et ", el);
-                message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
-                result = true;
-            } else (el = starWars) {
+                // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
+                // result = true;
+            } else if (el = 'starWars') {
                 console.log("la fonction choisi et ", el);
-                message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
-                result = true;
+                // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
+                // result = true;
+            } else {
+                console.log('erreur')
+                // result = false;
             }
-             return result;
+            // default 
+            //  return result;
 
-        },
+   },
         // création de l'autotab
         autoTab: function (box, longueur, texte) {
 
