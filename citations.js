@@ -110,7 +110,8 @@ const Citation = {
     },
     dom: {
         result: document.getElementById('result'),
-        nbCit: null,
+        nbCit: '',
+        chCit: '',
         error: document.getElementById('error')
     },
     methods: {
@@ -132,6 +133,10 @@ const Citation = {
             var maGlobalCitation = Citation.methods.formatGlobalCitation(firstElement, secondElement, finalElement);
             return maGlobalCitation;
 
+        },
+        updateSelect: function () {
+            // récupération la valeur
+            return Citation.dom.chCit = document.getElementById("chCit").value;
         },
         updateNbCit: function () {
             // récupération la valeur
@@ -162,27 +167,28 @@ const Citation = {
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
-            
-            console.log(el)
-            if(el = 'debut'){
-                console.log("merci de choisir un generateur  ", el);
+            var typeChoice = '';
+            console.log('value select', el)
+            if(el == 'default'){
+                console.log("merci de choisir un generateur  ");
                 // message = 'merci de bien vouloir choisir un generateur';
                 // result = false;
+                typeChoice = 'error';
                 
-            } else if (el = 'kaamelot') {
-                console.log("la fonction choisi et ", el);
+            } else if (el == 'kaamelot') {
+                console.log("la fonction choisi est ", el);
                 // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
-                // result = true;
-            } else if (el = 'starWars') {
-                console.log("la fonction choisi et ", el);
+                typeChoice = el;
+            } else if (el == 'starWars') {
+                console.log("la fonction choisi est ", el);
                 // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
-                // result = true;
+                typeChoice = el;
             } else {
                 console.log('erreur')
                 // result = false;
             }
             // default 
-            //  return result;
+            return typeChoice;
 
    },
         // création de l'autotab
@@ -196,12 +202,18 @@ const Citation = {
         init: function () {
             divHtml = "";
             citation = "";
-            var maValue = Citation.methods.updateNbCit();
+            // Mise à jour du select 
+            var valueSelect = Citation.methods.updateSelect();
+
+            // Vérifier la valeur approprié soit "kamelot" soit "starwars"
+            var nouvelleVerif = Citation.methods.checkvalue();// nouvelle fonction
+            var maVaLue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
-            var result = Citation.methods.verifValue(maValue);
+            var result = Citation.methods.verifValue(maVaLue);
+
             console.log('result', result);
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
-            if (result) {
+            if (result && nouvelleVerif) {
                 console.log("je commence a traité la demande");
                 // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
                 Citation.dom.result = '';
