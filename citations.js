@@ -207,7 +207,7 @@ const Citation = {
             console.log('valueSelect',valueSelect);
 
             // Vérifier la valeur approprié soit "kamelot" soit "starwars"
-            var nouvelleVerif = Citation.methods.checkvalue();// nouvelle fonction
+            var nouvelleVerif = Citation.methods.checkvalue(valueSelect);// nouvelle fonction
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
             var result = Citation.methods.verifValue(maValue);
