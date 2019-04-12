@@ -134,10 +134,6 @@ const Citation = {
             return maGlobalCitation;
 
         },
-        updateSelect: function () {
-            // récupération la valeur
-            return Citation.dom.chCit = document.getElementById("chCit").value;
-        },
         updateNbCit: function () {
             // récupération la valeur
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
@@ -163,6 +159,10 @@ const Citation = {
             }
             Citation.dom.error.innerHTML = message;
             return result;
+        },
+        updateSelect: function () {
+            // récupération la valeur
+            return Citation.dom.chCit = document.getElementById("chCit").value;
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
@@ -224,7 +224,7 @@ const Citation = {
                     var divHtml = document.createElement('div');
                     // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
                     // qui est allimenté par mes tableau de debut, milieu et fin de citation
-                    var citation = Citation.methods.valueSelect.generationCitation(
+                    var citation = Citation.methods.generationCitation(
                         Citation.data.debutCitation,
                         Citation.data.milieuCitation,
                         Citation.data.finCitation
