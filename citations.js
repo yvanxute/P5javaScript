@@ -143,9 +143,8 @@ const Citation = {
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
         },
         verifValue: function (el) {
-
             Citation.dom.error.innerHTML = '';
-            var result = null;
+            var result = "";
             // Avant de commencé le traitement nous ecrasons les données de l'ancienne demande pour repartir sur de bonne base 
             var message = "";
             // Si la valeur et inferieur ou egale a 0 alors nous avons un message 
@@ -168,7 +167,7 @@ const Citation = {
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
             var typeChoice = '';
-            console.log('value select', el)
+           // console.log('value select', el)
             if(el == 'default'){
                 console.log("merci de choisir un generateur  ");
                 // message = 'merci de bien vouloir choisir un generateur';
@@ -183,10 +182,10 @@ const Citation = {
                 console.log("la fonction choisi est ", el);
                 // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
-            } else {
-                console.log('erreur')
+            } //else {
+              //  console.log('erreur');
                 // result = false;
-            }
+            //}
             // default 
             return typeChoice;
 
@@ -205,11 +204,13 @@ const Citation = {
             // Mise à jour du select 
             var valueSelect = Citation.methods.updateSelect();
 
+            console.log('valueSelect',valueSelect);
+
             // Vérifier la valeur approprié soit "kamelot" soit "starwars"
             var nouvelleVerif = Citation.methods.checkvalue();// nouvelle fonction
-            var maVaLue = Citation.methods.updateNbCit();
+            var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
-            var result = Citation.methods.verifValue(maVaLue);
+            var result = Citation.methods.verifValue();
 
             console.log('result', result);
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
@@ -223,10 +224,10 @@ const Citation = {
                     var divHtml = document.createElement('div');
                     // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
                     // qui est allimenté par mes tableau de debut, milieu et fin de citation
-                    var citation = Citation.methods.generationCitation(
-                        Citation.data.kaamelot.debutCitation,
-                        Citation.data.kaamelot.milieuCitation,
-                        Citation.data.kaamelot.finCitation
+                    var citation = Citation.methods.valueSelect.generationCitation(
+                        Citation.data.debutCitation,
+                        Citation.data.milieuCitation,
+                        Citation.data.finCitation
                     );
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
