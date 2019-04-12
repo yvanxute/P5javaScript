@@ -210,7 +210,7 @@ const Citation = {
             var nouvelleVerif = Citation.methods.checkvalue();// nouvelle fonction
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
-            var result = Citation.methods.verifValue();
+            var result = Citation.methods.verifValue(maValue);
 
             console.log('result', result);
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
