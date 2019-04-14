@@ -211,6 +211,7 @@ init: function () {
     var maValue = Citation.methods.updateNbCit();
     // Vérifier que les conditions soient respectés
     var result = Citation.methods.verifValue(maValue);
+    // Boite de dialogue pour l'utilisateur pour confirmer ou arreter le programme 
 
     console.log('result', result);
     // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
@@ -246,9 +247,9 @@ init: function () {
         // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
     } else {
         console.log("verifValue n'est pas conforme")
-    }
+    } 
+ }
 }
-    }
 };
 // pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2
 // crée un nouveau dom et donnée le choix a l'utilisateur pour le dom 
