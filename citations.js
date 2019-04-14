@@ -167,13 +167,13 @@ const Citation = {
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
             var typeChoice = '';
-           // console.log('value select', el)
-            if(el == 'default'){
+            // console.log('value select', el)
+            if (el == 'default') {
                 console.log("merci de choisir un generateur  ");
                 // message = 'merci de bien vouloir choisir un generateur';
                 // result = false;
                 typeChoice = 'error';
-                
+
             } else if (el == 'kaamelot') {
                 console.log("la fonction choisi est ", el);
                 // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
@@ -183,13 +183,13 @@ const Citation = {
                 // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
             } //else {
-              //  console.log('erreur');
-                // result = false;
+            //  console.log('erreur');
+            // result = false;
             //}
             // default 
             return typeChoice;
 
-   },
+        },
         // création de l'autotab
         autoTab: function (box, longueur, texte) {
 
@@ -198,56 +198,56 @@ const Citation = {
             }
         },
 
-        init: function () {
-            divHtml = "";
-            citation = "";
-            // Mise à jour du select 
-            var valueSelect = Citation.methods.updateSelect();
+init: function () {
+    divHtml = "";
+    citation = "";
+    // Mise à jour du select 
+    var valueSelect = Citation.methods.updateSelect();
 
-            console.log('valueSelect',valueSelect);
+    console.log('valueSelect', valueSelect);
 
-            // Vérifier la valeur approprié soit "kamelot" soit "starwars"
-            var nouvelleVerif = Citation.methods.checkvalue(valueSelect);// nouvelle fonction
-            var maValue = Citation.methods.updateNbCit();
-            // Vérifier que les conditions soient respectés
-            var result = Citation.methods.verifValue(maValue);
+    // Vérifier la valeur approprié soit "kamelot" soit "starwars"
+    var nouvelleVerif = Citation.methods.checkvalue(valueSelect);// nouvelle fonction
+    var maValue = Citation.methods.updateNbCit();
+    // Vérifier que les conditions soient respectés
+    var result = Citation.methods.verifValue(maValue);
 
-            console.log('result', result);
-            // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
-            if (result && nouvelleVerif) {
-                console.log("je commence a traité la demande");
-                // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
-                Citation.dom.result = '';
-                // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
-                for (i = 0; i < maValue; i++) {
-                    // La divHtml va alors crée une nouvel div pour chaque citatition 
-                    var divHtml = document.createElement('div');
-                    // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
-                    // qui est allimenté par mes tableau de debut, milieu et fin de citation
-                    if (valueSelect == 'kaamelot'){
-                        var citation = Citation.methods.generationCitation(
-                            Citation.data.kaamelot.debutCitation,
-                            Citation.data.kaamelot.milieuCitation,
-                            Citation.data.kaamelot.finCitation
-                        );
-                    } else if (valueSelect == 'starWars'){
-                        var citation = Citation.methods.generationCitation(
-                            Citation.data.starWars.debutCitation,
-                            Citation.data.starWars.milieuCitation,
-                            Citation.data.starWars.finCitation
-                        );
-                    }
-                    
-                    divHtml.innerHTML = citation;
-                    // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
-                    divHtml.setAttribute("id", "citation" + i)
-                    document.getElementById('result').append(divHtml);
-                };
-                // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
-            } else {
-                console.log("verifValue n'est pas conforme")
+    console.log('result', result);
+    // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
+    if (result && nouvelleVerif) {
+        console.log("je commence a traité la demande");
+        // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
+        Citation.dom.result = '';
+        // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
+        for (i = 0; i < maValue; i++) {
+            // La divHtml va alors crée une nouvel div pour chaque citatition 
+            var divHtml = document.createElement('div');
+            // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
+            // qui est allimenté par mes tableau de debut, milieu et fin de citation
+            if (valueSelect == 'kaamelot') {
+                var citation = Citation.methods.generationCitation(
+                    Citation.data.kaamelot.debutCitation,
+                    Citation.data.kaamelot.milieuCitation,
+                    Citation.data.kaamelot.finCitation
+                );
+            } else if (valueSelect == 'starWars') {
+                var citation = Citation.methods.generationCitation(
+                    Citation.data.starWars.debutCitation,
+                    Citation.data.starWars.milieuCitation,
+                    Citation.data.starWars.finCitation
+                );
             }
-        }
+
+            divHtml.innerHTML = citation;
+            // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
+            divHtml.setAttribute("id", "citation" + i)
+            document.getElementById('result').append(divHtml);
+        };
+        // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
+    } else {
+        console.log("verifValue n'est pas conforme")
+    }
+}
     }
 };
 // pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2
