@@ -224,11 +224,20 @@ const Citation = {
                     var divHtml = document.createElement('div');
                     // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
                     // qui est allimenté par mes tableau de debut, milieu et fin de citation
-                    var citation = Citation.methods.generationCitation(
-                        Citation.data.debutCitation,
-                        Citation.data.milieuCitation,
-                        Citation.data.finCitation
-                    );
+                    if (valueSelect == 'kaamelot'){
+                        var citation = Citation.methods.generationCitation(
+                            Citation.data.kaamelot.debutCitation,
+                            Citation.data.kaamelot.milieuCitation,
+                            Citation.data.kaamelot.finCitation
+                        );
+                    } else if (valueSelect == 'starWars'){
+                        var citation = Citation.methods.generationCitation(
+                            Citation.data.starWars.debutCitation,
+                            Citation.data.starWars.milieuCitation,
+                            Citation.data.starWars.finCitation
+                        );
+                    }
+                    
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
                     divHtml.setAttribute("id", "citation" + i)
