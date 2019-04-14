@@ -198,58 +198,58 @@ const Citation = {
             }
         },
 
-init: function () {
-    divHtml = "";
-    citation = "";
-    // Mise à jour du select 
-    var valueSelect = Citation.methods.updateSelect();
+        init: function () {
+            divHtml = "";
+            citation = "";
+            // Mise à jour du select 
+            var valueSelect = Citation.methods.updateSelect();
 
-    console.log('valueSelect', valueSelect);
+            console.log('valueSelect', valueSelect);
 
-    // Vérifier la valeur approprié soit "kamelot" soit "starwars"
-    var nouvelleVerif = Citation.methods.checkvalue(valueSelect);// nouvelle fonction
-    var maValue = Citation.methods.updateNbCit();
-    // Vérifier que les conditions soient respectés
-    var result = Citation.methods.verifValue(maValue);
-    // Boite de dialogue pour l'utilisateur pour confirmer ou arreter le programme 
+            // Vérifier la valeur approprié soit "kamelot" soit "starwars"
+            var nouvelleVerif = Citation.methods.checkvalue(valueSelect);// nouvelle fonction
+            var maValue = Citation.methods.updateNbCit();
+            // Vérifier que les conditions soient respectés
+            var result = Citation.methods.verifValue(maValue);
+            // Boite de dialogue pour l'utilisateur pour confirmer ou arreter le programme 
 
-    console.log('result', result);
-    // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
-    if (result && nouvelleVerif) {
-        console.log("je commence a traité la demande");
-        // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
-        Citation.dom.result = '';
-        // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
-        for (i = 0; i < maValue; i++) {
-            // La divHtml va alors crée une nouvel div pour chaque citatition 
-            var divHtml = document.createElement('div');
-            // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
-            // qui est allimenté par mes tableau de debut, milieu et fin de citation
-            if (valueSelect == 'kaamelot') {
-                var citation = Citation.methods.generationCitation(
-                    Citation.data.kaamelot.debutCitation,
-                    Citation.data.kaamelot.milieuCitation,
-                    Citation.data.kaamelot.finCitation
-                );
-            } else if (valueSelect == 'starWars') {
-                var citation = Citation.methods.generationCitation(
-                    Citation.data.starWars.debutCitation,
-                    Citation.data.starWars.milieuCitation,
-                    Citation.data.starWars.finCitation
-                );
+            console.log('result', result);
+            // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
+            if (result && nouvelleVerif) {
+                console.log("je commence a traité la demande");
+                // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
+                Citation.dom.result = '';
+                // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
+                for (i = 0; i < maValue; i++) {
+                    // La divHtml va alors crée une nouvel div pour chaque citatition 
+                    var divHtml = document.createElement('div');
+                    // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
+                    // qui est allimenté par mes tableau de debut, milieu et fin de citation
+                    if (valueSelect == 'kaamelot') {
+                        var citation = Citation.methods.generationCitation(
+                            Citation.data.kaamelot.debutCitation,
+                            Citation.data.kaamelot.milieuCitation,
+                            Citation.data.kaamelot.finCitation
+                        );
+                    } else if (valueSelect == 'starWars') {
+                        var citation = Citation.methods.generationCitation(
+                            Citation.data.starWars.debutCitation,
+                            Citation.data.starWars.milieuCitation,
+                            Citation.data.starWars.finCitation
+                        );
+                    }
+
+                    divHtml.innerHTML = citation;
+                    // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
+                    divHtml.setAttribute("id", "citation" + i)
+                    document.getElementById('result').append(divHtml);
+                };
+                // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
+            } else {
+                console.log("verifValue n'est pas conforme")
             }
-
-            divHtml.innerHTML = citation;
-            // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
-            divHtml.setAttribute("id", "citation" + i)
-            document.getElementById('result').append(divHtml);
-        };
-        // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
-    } else {
-        console.log("verifValue n'est pas conforme")
-    } 
- }
-}
+        }
+    }
 };
 // pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2
 // crée un nouveau dom et donnée le choix a l'utilisateur pour le dom 
