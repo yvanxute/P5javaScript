@@ -233,12 +233,14 @@ const Citation = {
                             Citation.data.kaamelot.milieuCitation,
                             Citation.data.kaamelot.finCitation
                         );
+                        Citation.methods.suiteEvent();
                     } else if (valueSelect == 'starWars') {
                         var citation = Citation.methods.generationCitation(
                             Citation.data.starWars.debutCitation,
                             Citation.data.starWars.milieuCitation,
                             Citation.data.starWars.finCitation
                         );
+                        Citation.methods.suiteEvent();
                     }
 
                     divHtml.innerHTML = citation;
@@ -252,21 +254,29 @@ const Citation = {
             }
             console.log('fin du programme');
             // création de la boite de dialogue 
-            var txt = "";
-            var r = confirm("Si vous souhaité crée de nouvel citation appuyez sur ok sinon sur cancel");
-            // si on choisie de regénerée les citations 
-            if (r == true) {
-              txt = "You pressed OK!",
-              reset(Citation.methods.init());
-              document.getElementById("lancement").disabled = false;
-                // si on choisie d'arrete le programme 
-            } else {
-              txt = "You pressed Cancel!"
-              document.getElementById("lancement").disabled = true; 
-            }
-            console.log('hello');
-        //    return document.getElementById("demo").innerthtml;
+            //     var txt = "";
+            //     var r = confirm("Si vous souhaité crée de nouvel citation appuyez sur ok sinon sur cancel");
+            //     // si on choisie de regénerée les citations 
+            //     if (r == true) {
+            //       txt = "You pressed OK!",
+            //       reset(Citation.methods.init());
+            //       document.getElementById("lancement").disabled = false;
+            //         // si on choisie d'arrete le programme 
+            //     } else {
+            //       txt = "You pressed Cancel!"
+            //       document.getElementById("lancement").disabled = true; 
+            //     }
+            //     console.log('hello');
+            // //    return document.getElementById("demo").innerthtml;
           
+        },
+        resetAction: function (el) {
+            console.log('click', el)
+        },
+        suiteEvent: function () {
+            // on fait disparaitre le btn ou on le disable
+            // confirmationSession je le rend visible
+
         }
     }
 };

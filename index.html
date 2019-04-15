@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Générateur de citations</title>
 </head>
 
@@ -24,6 +25,11 @@
     <p id="conditions">Conditions : Choisir le nombre de citations générées (de 1 à 5)</p>
     <div id="result"></div>
     <button id="lancement" onclick="Citation.methods.init()">lancement</button>
+
+    <div class="confirmationSession hide">
+        <button onclick="Citation.methods.resetAction('oui')"> oui</button>
+        <button onclick="Citation.methods.resetAction('non')">non</button>
+    </div>
     <script type="text/javascript" src="./citations.js"></script>
 </body>
 
