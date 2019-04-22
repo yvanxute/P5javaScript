@@ -206,6 +206,7 @@ const Citation = {
             // Mise à jour du select 
             var valueSelect = Citation.methods.updateSelect();
 
+
             console.log('valueSelect', valueSelect);
 
             // Vérifier la valeur approprié soit "kamelot" soit "starwars"
@@ -268,15 +269,24 @@ const Citation = {
             //     }
             //     console.log('hello');
             // //    return document.getElementById("demo").innerthtml;
-          
+
         },
         resetAction: function (el) {
             console.log('click', el)
+            if (el == 'oui') {
+
+            } else if (el == 'non') {
+
+            };
         },
         suiteEvent: function () {
             // on fait disparaitre le btn ou on le disable
+            document.getElementById("chCit").disabled = true;
+            document.getElementById("nbCit").disabled = true;
+            document.getElementById("lancement").disabled = true;
             // confirmationSession je le rend visible
-
+            let confirm = document.getElementsByClassName("confirmationSession");
+            confirm[0].classList.remove("hide");
         }
     }
 };
