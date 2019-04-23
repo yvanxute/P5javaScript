@@ -170,27 +170,29 @@ const Citation = {
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkvalue: function (el) {
             var typeChoice = '';
+            var message = "";
+            Citation.dom.error.innerHTML = '';
             // console.log('value select', el)
             if (el == 'default') {
-                console.log("merci de choisir un generateur  ");
+                message = "merci de choisir un generateur ";
                 // message = 'merci de bien vouloir choisir un generateur';
-                // result = false;
-                typeChoice = 'error';
+                
+                typeChoice = false;
 
             } else if (el == 'kaamelot') {
                 console.log("la fonction choisi est ", el);
-                // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
+                 message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
             } else if (el == 'starWars') {
                 console.log("la fonction choisi est ", el);
-                // message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
+                 message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
-            } //else {
-            //  console.log('erreur');
-            // result = false;
-            //}
-            // default 
+            } 
+            Citation.dom.error.innerHTML = message 
             return typeChoice;
+            
+            
+            
 
         },
         // création de l'autotab
@@ -258,21 +260,8 @@ const Citation = {
         resetAction: function (el) {
             console.log('click', el)
             if (el == 'oui') {
-               
-                // var element = document.getElementById('nbCit');
-                // element.addEventListener('click', function () {
-                //     document.getElementById("nbCit").value = "";
-                // });
-                // var element = document.getElementById('chCit');
-                // element.addEventListener('click', function () {
-                //     document.getElementById("chCit").value = "";
-                // });
-                // var element = document.getElementById('lancement');
-                // element.addEventListener('click', function () {
-                //     document.getElementById("lancement").value = "";
-                // });
-                document.location.reload(true);
-                 
+                // remetre a zero la page 
+                document.location.reload(true);                
 
             } else if (el == 'non') {
                 // confirmationSession je le rend invisible
@@ -290,5 +279,3 @@ const Citation = {
         }
     }
 };
-// pour la step 3 crée une nouvel imput a moi de voir la facon pour collecter la nouvel valeur qui sera compris en 1 et 2
-// crée un nouveau dom et donnée le choix a l'utilisateur pour le dom 
