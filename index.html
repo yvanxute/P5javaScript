@@ -26,7 +26,8 @@
     <div id="result"></div>
     <button id="lancement" onclick="Citation.methods.init()">lancement</button>
 
-    <div class="confirmationSession hide">
+    <div id="finProgramme" class="confirmationSession hide">
+        <p>Voulez-vous générées de nouvelle citation ?(oui) sinon arreter le programme(non) </p>
         <button onclick="Citation.methods.resetAction('oui')">oui</button>
         <button onclick="Citation.methods.resetAction('non')">non</button>
     </div>

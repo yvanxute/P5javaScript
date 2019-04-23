@@ -113,8 +113,9 @@ const Citation = {
         nbCit: '',
         chCit: '',
         error: document.getElementById('error'),
-        demo: document.getElementById("demo"),
-        lancement: document.getElementById('lancement')
+        lancement: document.getElementById('lancement'),
+        finProgramme: document.getElementById("finProgramme")
+
     },
     methods: {
         // Renvoie la description de Citation avec 3 constantes
@@ -202,7 +203,7 @@ const Citation = {
 
         init: function () {
             divHtml = "";
-            citation = "";
+            Citation.dom.result = "";
             // Mise à jour du select 
             var valueSelect = Citation.methods.updateSelect();
 
@@ -214,7 +215,6 @@ const Citation = {
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
             var result = Citation.methods.verifValue(maValue);
-            // Boite de dialogue pour l'utilisateur pour confirmer ou arreter le programme 
 
             console.log('result', result);
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
@@ -254,29 +254,16 @@ const Citation = {
                 console.log("verifValue n'est pas conforme")
             }
             console.log('fin du programme');
-            // création de la boite de dialogue 
-            //     var txt = "";
-            //     var r = confirm("Si vous souhaité crée de nouvel citation appuyez sur ok sinon sur cancel");
-            //     // si on choisie de regénerée les citations 
-            //     if (r == true) {
-            //       txt = "You pressed OK!",
-            //       reset(Citation.methods.init());
-            //       document.getElementById("lancement").disabled = false;
-            //         // si on choisie d'arrete le programme 
-            //     } else {
-            //       txt = "You pressed Cancel!"
-            //       document.getElementById("lancement").disabled = true; 
-            //     }
-            //     console.log('hello');
-            // //    return document.getElementById("demo").innerthtml;
-
         },
         resetAction: function (el) {
             console.log('click', el)
             if (el == 'oui') {
-
+               //réinitaliser toute les valeurs a defaut 
+                // document.getElementById("nbCit").reset(this.value);
+                // document.getElementById("lancement").reset(this.value);
             } else if (el == 'non') {
-
+                  // confirmationSession je le rend invisible
+                  document.getElementById("finProgramme").classList.add("hide");
             };
         },
         suiteEvent: function () {
