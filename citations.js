@@ -110,8 +110,8 @@ const Citation = {
     },
     dom: {
         result: document.getElementById('result'),
-        nbCit: '',
-        chCit: '',
+        nbCit: document.getElementById('nbCit'),
+        chCit: document.getElementById('chCit'),
         error: document.getElementById('error'),
         lancement: document.getElementById('lancement'),
         finProgramme: document.getElementById("finProgramme")
