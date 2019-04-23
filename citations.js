@@ -258,12 +258,24 @@ const Citation = {
         resetAction: function (el) {
             console.log('click', el)
             if (el == 'oui') {
-               //réinitaliser toute les valeurs a defaut 
-                // document.getElementById("nbCit").reset(this.value);
-                // document.getElementById("lancement").reset(this.value);
+               
+                var element = document.getElementById('nbCit');
+                element.addEventListener('click', function () {
+                    document.getElementById("nbCit").value = "";
+                });
+                var element = document.getElementById('chCit');
+                element.addEventListener('click', function () {
+                    document.getElementById("chCit").value = "";
+                });
+                var element = document.getElementById('lancement');
+                element.addEventListener('click', function () {
+                    document.getElementById("lancement").value = "";
+                });
+                 
+
             } else if (el == 'non') {
-                  // confirmationSession je le rend invisible
-                  document.getElementById("finProgramme").classList.add("hide");
+                // confirmationSession je le rend invisible
+                document.getElementById("finProgramme").classList.add("hide");
             };
         },
         suiteEvent: function () {
