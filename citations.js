@@ -259,18 +259,19 @@ const Citation = {
             console.log('click', el)
             if (el == 'oui') {
                
-                var element = document.getElementById('nbCit');
-                element.addEventListener('click', function () {
-                    document.getElementById("nbCit").value = "";
-                });
-                var element = document.getElementById('chCit');
-                element.addEventListener('click', function () {
-                    document.getElementById("chCit").value = "";
-                });
-                var element = document.getElementById('lancement');
-                element.addEventListener('click', function () {
-                    document.getElementById("lancement").value = "";
-                });
+                // var element = document.getElementById('nbCit');
+                // element.addEventListener('click', function () {
+                //     document.getElementById("nbCit").value = "";
+                // });
+                // var element = document.getElementById('chCit');
+                // element.addEventListener('click', function () {
+                //     document.getElementById("chCit").value = "";
+                // });
+                // var element = document.getElementById('lancement');
+                // element.addEventListener('click', function () {
+                //     document.getElementById("lancement").value = "";
+                // });
+                document.location.reload(true);
                  
 
             } else if (el == 'non') {
