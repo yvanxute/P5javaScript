@@ -3,7 +3,7 @@
 const Citation = {
     data: {
         //creation d'un tableau de kaamelot pour exemple 
-        kaamelot: {
+        kaamelott: {
             debutCitation: [
                 "Oh, mais c'est pas vrai, ",
                 "Merlin, i'sait déjà pas monter des blancs en neige, ",
@@ -55,7 +55,7 @@ const Citation = {
             ],
         },
         // creation d'un second tableau star wars exemple 
-        starWars: {
+        kaamelott2: {
             debutCitation: [
                 "Oh, mais c'est pas vrai, ",
                 "Merlin, i'sait déjà pas monter des blancs en neige, ",
@@ -149,7 +149,7 @@ const Citation = {
             // Si la valeur et inferieur ou egale a 0 alors nous avons un message 
             if (el <= 0) {
                 console.log('error : ', el);
-                message = 'Il y a un probleme la valeur est inférieur à 1';
+                message = 'Merci de bien vouloir choisir un type de generateur ou alors Il y a un probleme la valeur est inférieur à 1';
                 result = false;
                 // Sinon si la valeur et superieur a 5 nous ne somme dans les conditions demandé un message d'erreur en retour 
             } else if (el > 5) {
@@ -157,7 +157,7 @@ const Citation = {
                 result = false;
                 // Sinon nous somme dans les conditions demandé entre 1 et 5 
             } else {
-                message = 'Condition respecté';
+                message = 'merci de bien vouloir choisir un type de citation';
                 result = true;
             }
             Citation.dom.error.innerHTML = message;
@@ -179,11 +179,11 @@ const Citation = {
                 
                 typeChoice = false;
 
-            } else if (el == 'kaamelot') {
+            } else if (el == 'kaamelott') {
                 console.log("la fonction choisi est ", el);
                  message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
-            } else if (el == 'starWars') {
+            } else if (el == 'kaamelott2') {
                 console.log("la fonction choisi est ", el);
                  message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
@@ -230,18 +230,18 @@ const Citation = {
                     var divHtml = document.createElement('div');
                     // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
                     // qui est allimenté par mes tableau de debut, milieu et fin de citation
-                    if (valueSelect == 'kaamelot') {
+                    if (valueSelect == 'kaamelott') {
                         var citation = Citation.methods.generationCitation(
-                            Citation.data.kaamelot.debutCitation,
-                            Citation.data.kaamelot.milieuCitation,
-                            Citation.data.kaamelot.finCitation
+                            Citation.data.kaamelott.debutCitation,
+                            Citation.data.kaamelott.milieuCitation,
+                            Citation.data.kaamelott.finCitation
                         );
                         Citation.methods.suiteEvent();
-                    } else if (valueSelect == 'starWars') {
+                    } else if (valueSelect == 'kaamelott2') {
                         var citation = Citation.methods.generationCitation(
-                            Citation.data.starWars.debutCitation,
-                            Citation.data.starWars.milieuCitation,
-                            Citation.data.starWars.finCitation
+                            Citation.data.kaamelott2.debutCitation,
+                            Citation.data.kaamelott2.milieuCitation,
+                            Citation.data.kaamelott2.finCitation
                         );
                         Citation.methods.suiteEvent();
                     }
@@ -255,7 +255,7 @@ const Citation = {
             } else {
                 console.log("verifValue n'est pas conforme")
             }
-            console.log('fin du programme');
+            
         },
         resetAction: function (el) {
             console.log('click', el)
