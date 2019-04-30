@@ -153,11 +153,11 @@ const Citation = {
                 result = false;
                 // Sinon si la valeur et superieur a 5 nous ne somme dans les conditions demandé un message d'erreur en retour 
             } else if (el > 5) {
-                message = 'Il y a un probleme la valeur est supérieur à 5';
+                message = 'Merci de bien vouloir choisir un type de generateur ou alors Il y a un probleme la valeur est superieur à 5';
                 result = false;
                 // Sinon nous somme dans les conditions demandé entre 1 et 5 
             } else {
-                message = 'merci de bien vouloir choisir un type de citation';
+                message = 'felicitation voila les citation que vous avez demandé si vous avez choisi le générateur si ce n ai pas le cas merci de bien vouloir choisir un type de citation';
                 result = true;
             }
             Citation.dom.error.innerHTML = message;
