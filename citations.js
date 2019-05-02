@@ -1,4 +1,3 @@
-
 // reconstruction de l'object avec les methods et les datas
 const Citation = {
     data: {
@@ -119,15 +118,15 @@ const Citation = {
     },
     methods: {
         // Renvoie la description de Citation avec 3 constantes
-        formatGlobalCitation: function (el1, el2, el3) {
+        formatGlobalCitation: function(el1, el2, el3) {
             return (el1 + " " + el2 + " " + el3); // sinon  3 morceaux
         },
         // retour un entier aleatoir de 1 à max
-        selectIndexCitation: function (citationArray, max) {
+        selectIndexCitation: function(citationArray, max) {
             var index = Math.floor((Math.random() * max));
             return citationArray[index];
         },
-        generationCitation: function (randomDebutCitation, randomMilieuCitation, randomFinCitation) {
+        generationCitation: function(randomDebutCitation, randomMilieuCitation, randomFinCitation) {
 
             var firstElement = Citation.methods.selectIndexCitation(randomDebutCitation, randomDebutCitation.length),
                 secondElement = Citation.methods.selectIndexCitation(randomMilieuCitation, randomMilieuCitation.length),
@@ -137,11 +136,11 @@ const Citation = {
             return maGlobalCitation;
 
         },
-        updateNbCit: function () {
+        updateNbCit: function() {
             // récupération la valeur
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
         },
-        verifValue: function (el) {
+        verifNbcit: function(el) {
             Citation.dom.error.innerHTML = '';
             var result = "";
             // Avant de commencé le traitement nous ecrasons les données de l'ancienne demande pour repartir sur de bonne base 
@@ -163,12 +162,12 @@ const Citation = {
             Citation.dom.error.innerHTML = message;
             return result;
         },
-        updateSelect: function () {
+        updateSelect: function() {
             // récupération la valeur
             return Citation.dom.chCit = document.getElementById("chCit").value;
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
-        checkvalue: function (el) {
+        checkType: function(el) {
             var typeChoice = '';
             var message = "";
             Citation.dom.error.innerHTML = '';
@@ -176,34 +175,34 @@ const Citation = {
             if (el == 'default') {
                 message = "merci de choisir un generateur ";
                 // message = 'merci de bien vouloir choisir un generateur';
-                
+
                 typeChoice = false;
 
             } else if (el == 'kaamelott') {
                 console.log("la fonction choisi est ", el);
-                 message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
+                message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
             } else if (el == 'kaamelott2') {
                 console.log("la fonction choisi est ", el);
-                 message ='bravo maintenant merci de bien choisir le nombre de citation a generer';
+                message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice = el;
-            } 
-            Citation.dom.error.innerHTML = message 
+            }
+            Citation.dom.error.innerHTML = message
             return typeChoice;
-            
-            
-            
+
+
+
 
         },
         // création de l'autotab
-        autoTab: function (box, longueur, texte) {
+        autoTab: function(box, longueur, texte) {
 
             if (texte.length > longueur - 1) {
                 document.getElementById('TB' + box).focus();
             }
         },
 
-        init: function () {
+        init: function() {
             divHtml = "";
             Citation.dom.result = "";
             // Mise à jour du select 
@@ -213,10 +212,10 @@ const Citation = {
             console.log('valueSelect', valueSelect);
 
             // Vérifier la valeur approprié soit "kamelot" soit "starwars"
-            var nouvelleVerif = Citation.methods.checkvalue(valueSelect);// nouvelle fonction
+            var nouvelleVerif = Citation.methods.checkType(valueSelect); // nouvelle fonction
             var maValue = Citation.methods.updateNbCit();
             // Vérifier que les conditions soient respectés
-            var result = Citation.methods.verifValue(maValue);
+            var result = Citation.methods.verifNbcit(maValue);
 
             console.log('result', result);
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
@@ -253,22 +252,23 @@ const Citation = {
                 };
                 // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
             } else {
-                console.log("verifValue n'est pas conforme")
+                if (!verifType)
+                    console.log("verifNbcit n'est pas conforme")
             }
-            
+
         },
-        resetAction: function (el) {
+        resetAction: function(el) {
             console.log('click', el)
             if (el == 'oui') {
                 // remetre a zero la page 
-                document.location.reload(true);                
+                document.location.reload(true);
 
             } else if (el == 'non') {
                 // confirmationSession je le rend invisible
                 document.getElementById("finProgramme").classList.add("hide");
             };
         },
-        suiteEvent: function () {
+        suiteEvent: function() {
             // on fait disparaitre le btn ou on le disable
             document.getElementById("chCit").disabled = true;
             document.getElementById("nbCit").disabled = true;

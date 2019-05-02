@@ -7,14 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css">
     <title>Générateur de citations kaamelott </title>
-    
+
 </head>
 
 <body>
-        <img src="img/astier.jpg" class="fond"></img>
+    <img src="img/astier.jpg" class="fond"></img>
     <h1>Générateur de citation</h1>
-    <select name="" id="chCit" onchange="Citation.methods.checkvalue(this.value)" id="TAB1" tabindex="1"
-        onkeyup="autoTab(2, this.size, this.value)">
+    <select name="" id="chCit" onchange="Citation.methods.checkType(this.value)" id="TAB1" tabindex="1" onkeyup="autoTab(2, this.size, this.value)">
         <option value="default" id="option1">Choisir le type de Citation :</option>
         <option value="kaamelott2" id="option2">kaamelott2</option>
         <option value="kaamelott" id="option3">kaamelott</option>
@@ -23,8 +22,7 @@
     <label for="nbCitation">Nombre de citation souhaite : </label>
     <input type="number" id="nbCit" onchange="Citation.methods.updateNbCit(this.value)" id="TAB2" tabindex="2">
     <div id="error"></div>
-    <p id="conditions">Conditions : Choisir le nombre de citations générées (de 1 à 5) <br/>
-    ainsi que de choisir un type de Générateur<br/></p>
+    <p id="conditions">Conditions : Choisir le nombre de citations générées (de 1 à 5) <br/> ainsi que de choisir un type de Générateur<br/></p>
     <div id="result"></div>
     <button id="lancement" onclick="Citation.methods.init()">lancement</button>
 
