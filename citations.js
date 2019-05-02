@@ -148,15 +148,15 @@ const Citation = {
             // Si la valeur et inferieur ou egale a 0 alors nous avons un message 
             if (el <= 0) {
                 console.log('error : ', el);
-                message = 'Merci de bien vouloir choisir un type de generateur ou alors Il y a un probleme la valeur est inférieur à 1';
+                message = 'Il y a un probleme la valeur est inférieur à 1';
                 result = false;
                 // Sinon si la valeur et superieur a 5 nous ne somme dans les conditions demandé un message d'erreur en retour 
             } else if (el > 5) {
-                message = 'Merci de bien vouloir choisir un type de generateur ou alors Il y a un probleme la valeur est superieur à 5';
+                message = 'Il y a un probleme la valeur est superieur à 5';
                 result = false;
                 // Sinon nous somme dans les conditions demandé entre 1 et 5 
             } else {
-                message = 'felicitation voila les citation que vous avez demandé si vous avez choisi le générateur si ce n ai pas le cas merci de bien vouloir choisir un type de citation';
+                message = 'felicitation voila les citation que vous avez demandé';
                 result = true;
             }
             Citation.dom.error.innerHTML = message;
@@ -175,7 +175,7 @@ const Citation = {
             if (el == 'default') {
                 message = "merci de choisir un generateur ";
                 // message = 'merci de bien vouloir choisir un generateur';
-
+                console.log('petit probleme')
                 typeChoice = false;
 
             } else if (el == 'kaamelott') {
@@ -203,10 +203,11 @@ const Citation = {
         },
 
         init: function() {
+            message = '';
             divHtml = "";
             Citation.dom.result = "";
             // Mise à jour du select 
-            var valueSelect = Citation.methods.updateSelect();
+            var valueSelect = Citation.methods.updateSelect(this.value);
 
 
             console.log('valueSelect', valueSelect);
@@ -252,8 +253,13 @@ const Citation = {
                 };
                 // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
             } else {
-                if (!verifType)
-                    console.log("verifNbcit n'est pas conforme")
+                message = '';
+                if (!nouvelleVerif){
+                    message = "merci de choisir un generateur ";
+                } else if(!result){
+                    message = 'oups merci de verifier le nombre de citation';
+                }
+                Citation.dom.error.innerHTML = message;
             }
 
         },
