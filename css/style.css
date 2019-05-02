@@ -5,14 +5,12 @@
 .show {
     display: block;
 }
-.fond {
-    position: relative;
-
-    opacity: 0.6;
-    width: 100%;
+body {
+    background: url(../img/astier.jpg);
+    background-repeat: no-repeat;
+    opacity: 1;
+    height: auto;
+    width: auto;
     margin: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
 
 }
