@@ -1,7 +1,7 @@
 // reconstruction de l'object avec les methods et les datas
 const Citation = {
     data: {
-        //creation d'un tableau de kaamelot pour exemple 
+        //creation d'un tableau de kaamelot 
         kaamelott: {
             debutCitation: [
                 "Oh, mais c'est pas vrai, ",
@@ -53,7 +53,7 @@ const Citation = {
                 "mettez-vous à la place des ennemis, c'est désespérant."
             ],
         },
-        // creation d'un second tableau star wars exemple 
+        // creation d'un second tableau kaamelott 2 
         kaamelott2: {
             debutCitation: [
                 "Oh, mais c'est pas vrai, ",
@@ -142,22 +142,24 @@ const Citation = {
         },
         verifNbcit: function(el) {
             Citation.dom.error.innerHTML = '';
-            var result = "";
+            var result = {
+                result : "",
+                message: ""
+            };
             // Avant de commencé le traitement nous ecrasons les données de l'ancienne demande pour repartir sur de bonne base 
-            var message = "";
             // Si la valeur et inferieur ou egale a 0 alors nous avons un message 
             if (el <= 0) {
                 console.log('error : ', el);
-                message = 'Il y a un probleme la valeur est inférieur à 1';
-                result = false;
+                result.message = 'Il y a un probleme la valeur est inférieur à 1';
+                result.result = false;
                 // Sinon si la valeur et superieur a 5 nous ne somme dans les conditions demandé un message d'erreur en retour 
             } else if (el > 5) {
-                message = 'Il y a un probleme la valeur est superieur à 5';
-                result = false;
+                result.message = 'Il y a un probleme la valeur est superieur à 5';
+                result.result = false;
                 // Sinon nous somme dans les conditions demandé entre 1 et 5 
             } else {
-                message = 'felicitation voila les citation que vous avez demandé';
-                result = true;
+                result.message = 'felicitation voila les citation que vous avez demandé';
+                result.result = true;
             }
             Citation.dom.error.innerHTML = message;
             return result;
@@ -168,26 +170,28 @@ const Citation = {
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
         checkType: function(el) {
-            var typeChoice = '';
-            var message = "";
+            var typeChoice = {
+                choice : "",
+                message: ""
+            };
             Citation.dom.error.innerHTML = '';
             // console.log('value select', el)
             if (el == 'default') {
-                message = "merci de choisir un generateur ";
+                typeChoice.message = "merci de choisir un generateur ";
                 // message = 'merci de bien vouloir choisir un generateur';
                 console.log('petit probleme')
-                typeChoice = false;
+                typeChoice.choice = false;
 
             } else if (el == 'kaamelott') {
                 console.log("la fonction choisi est ", el);
-                message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
-                typeChoice = el;
+                typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
+                typeChoice.choice = el;
             } else if (el == 'kaamelott2') {
                 console.log("la fonction choisi est ", el);
-                message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
-                typeChoice = el;
+                typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
+                typeChoice.choice = el;
             }
-            Citation.dom.error.innerHTML = message
+            //Citation.dom.error.innerHTML = message
             return typeChoice;
 
 
@@ -218,9 +222,9 @@ const Citation = {
             // Vérifier que les conditions soient respectés
             var result = Citation.methods.verifNbcit(maValue);
 
-            console.log('result', result);
+            console.log('result', result.result);
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
-            if (result && nouvelleVerif) {
+            if (result.result && nouvelleVerif.choice) {
                 console.log("je commence a traité la demande");
                 // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
                 Citation.dom.result = '';
@@ -254,10 +258,10 @@ const Citation = {
                 // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
             } else {
                 message = '';
-                if (!nouvelleVerif){
-                    message = "merci de choisir un generateur ";
-                } else if(!result){
-                    message = 'oups merci de verifier le nombre de citation';
+                if (!nouvelleVerif.choice){
+                    message = nouvelleVerif.message;
+                } else if(!result.result){
+                    message = result.message;
                 }
                 Citation.dom.error.innerHTML = message;
             }
