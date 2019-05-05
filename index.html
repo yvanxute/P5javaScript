@@ -11,22 +11,22 @@
 </head>
 
 <body>
-    <h1>Générateur de citation</h1>
-    <select name="" id="chCit" onchange="Citation.methods.checkType(this.value)" id="TAB1" tabindex="1" onkeyup="autoTab(2, this.size, this.value)">
+    <h1 class="color">Générateur de citation</h1>
+    <select class= "color" name="" id="chCit" onchange="Citation.methods.checkType(this.value)" id="TAB1" tabindex="1" onkeyup="autoTab(2, this.size, this.value)">
         <option value="default" id="option1">Choisir le type de Citation :</option>
         <option value="kaamelott2" id="option2">kaamelott2</option>
         <option value="kaamelott" id="option3">kaamelott</option>
     </select>
 
-    <label for="nbCitation">Nombre de citation souhaite : </label>
+    <label class="color" for="nbCitation">Nombre de citation souhaite : </label>
     <input type="number" id="nbCit" onchange="Citation.methods.updateNbCit(this.value)" id="TAB2" tabindex="2">
-    <div id="error"></div>
-    <p id="conditions">Conditions : Choisir le nombre de citations générées (de 1 à 5) <br/> ainsi que de choisir un type de Générateur<br/></p>
-    <div id="result"></div>
+    <div class="color" id="error"></div>
+    <p class="color" id="conditions">Conditions : Choisir le nombre de citations générées (de 1 à 5) <br/> ainsi que de choisir un type de Générateur<br/></p>
+    <div class="color" id="result"></div>
     <button id="lancement" onclick="Citation.methods.init()">lancement</button>
 
     <div id="finProgramme" class="confirmationSession hide">
-        <p>Voulez-vous générées de nouvelle citation ?(oui) sinon arreter le programme(non) </p>
+        <p class="color">Voulez-vous générées de nouvelle citation ?(oui) sinon arreter le programme(non) </p>
         <button onclick="Citation.methods.resetAction('oui')">oui</button>
         <button onclick="Citation.methods.resetAction('non')">non</button>
     </div>

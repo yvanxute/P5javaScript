@@ -6,11 +6,10 @@
     display: block;
 }
 body {
-    background: url(../img/astier.jp);
+    background: url(../img/astier.jpg);
     background-repeat: no-repeat;
-    opacity: 1;
-    height: auto;
-    width: auto;
-    margin: 0px;
-
+    background-size: cover;
+}
+.color {
+    color: white;
 }

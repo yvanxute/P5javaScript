@@ -252,7 +252,7 @@ const Citation = {
 
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
-                    divHtml.setAttribute("id", "citation" + i)
+                    divHtml.setAttribute("id", "citation" + i);
                     document.getElementById('result').append(divHtml);
                 };
                 // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
