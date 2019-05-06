@@ -231,7 +231,7 @@ const Citation = {
                 // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
                 for (i = 0; i < maValue; i++) {
                     // La divHtml va alors crée une nouvel div pour chaque citatition 
-                    var divHtml = document.createElement('div');
+                    var divHtml = document.createElement('li');
                     // Une citation correspond à la constante de citation dans la methods ou ce trouve ma generationCitation 
                     // qui est allimenté par mes tableau de debut, milieu et fin de citation
                     if (valueSelect == 'kaamelott') {
@@ -249,7 +249,8 @@ const Citation = {
                         );
                         Citation.methods.suiteEvent();
                     }
-
+                    // var citationNb = (i+1) +"-"+ citation;
+                        
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
                     divHtml.setAttribute("id", "citation" + i)
