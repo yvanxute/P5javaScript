@@ -118,15 +118,15 @@ const Citation = {
     },
     methods: {
         // Renvoie la description de Citation avec 3 constantes
-        formatGlobalCitation: function(el1, el2, el3) {
+        formatGlobalCitation: function (el1, el2, el3) {
             return (el1 + " " + el2 + " " + el3); // sinon  3 morceaux
         },
         // retour un entier aleatoir de 1 à max
-        selectIndexCitation: function(citationArray, max) {
+        selectIndexCitation: function (citationArray, max) {
             var index = Math.floor((Math.random() * max));
             return citationArray[index];
         },
-        generationCitation: function(randomDebutCitation, randomMilieuCitation, randomFinCitation) {
+        generationCitation: function (randomDebutCitation, randomMilieuCitation, randomFinCitation) {
 
             var firstElement = Citation.methods.selectIndexCitation(randomDebutCitation, randomDebutCitation.length),
                 secondElement = Citation.methods.selectIndexCitation(randomMilieuCitation, randomMilieuCitation.length),
@@ -136,14 +136,14 @@ const Citation = {
             return maGlobalCitation;
 
         },
-        updateNbCit: function() {
+        updateNbCit: function () {
             // récupération la valeur
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
         },
-        verifNbcit: function(el) {
+        verifNbcit: function (el) {
             Citation.dom.error.innerHTML = '';
             var result = {
-                result : "",
+                result: "",
                 message: ""
             };
             // Avant de commencé le traitement nous ecrasons les données de l'ancienne demande pour repartir sur de bonne base 
@@ -164,14 +164,14 @@ const Citation = {
             Citation.dom.error.innerHTML = message;
             return result;
         },
-        updateSelect: function() {
+        updateSelect: function () {
             // récupération la valeur
             return Citation.dom.chCit = document.getElementById("chCit").value;
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
-        checkType: function(el) {
+        checkType: function (el) {
             var typeChoice = {
-                choice : "",
+                choice: "",
                 message: ""
             };
             Citation.dom.error.innerHTML = '';
@@ -199,14 +199,14 @@ const Citation = {
 
         },
         // création de l'autotab
-        autoTab: function(box, longueur, texte) {
+        autoTab: function (box, longueur, texte) {
 
             if (texte.length > longueur - 1) {
                 document.getElementById('TB' + box).focus();
             }
         },
 
-        init: function() {
+        init: function () {
             message = '';
             divHtml = "";
             Citation.dom.result = "";
@@ -252,22 +252,22 @@ const Citation = {
 
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
-                    divHtml.setAttribute("id", "citation" + i);
+                    divHtml.setAttribute("id", "citation" + i)
                     document.getElementById('result').append(divHtml);
                 };
                 // Si aprés verif value n'est pas conforme un message d'erreur et alors transmit 
             } else {
                 message = '';
-                if (!nouvelleVerif.choice){
+                if (!nouvelleVerif.choice) {
                     message = nouvelleVerif.message;
-                } else if(!result.result){
+                } else if (!result.result) {
                     message = result.message;
                 }
                 Citation.dom.error.innerHTML = message;
             }
 
         },
-        resetAction: function(el) {
+        resetAction: function (el) {
             console.log('click', el)
             if (el == 'oui') {
                 // remetre a zero la page 
@@ -278,7 +278,7 @@ const Citation = {
                 document.getElementById("finProgramme").classList.add("hide");
             };
         },
-        suiteEvent: function() {
+        suiteEvent: function () {
             // on fait disparaitre le btn ou on le disable
             document.getElementById("chCit").disabled = true;
             document.getElementById("nbCit").disabled = true;
