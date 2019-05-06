@@ -149,7 +149,7 @@ const Citation = {
             // Avant de commencé le traitement nous ecrasons les données de l'ancienne demande pour repartir sur de bonne base 
             // Si la valeur et inferieur ou egale a 0 alors nous avons un message 
             if (el <= 0) {
-                console.log('error : ', el);
+                
                 result.message = 'Il y a un probleme la valeur est inférieur à 1';
                 result.result = false;
                 // Sinon si la valeur et superieur a 5 nous ne somme dans les conditions demandé un message d'erreur en retour 
@@ -179,15 +179,15 @@ const Citation = {
             if (el == 'default') {
                 typeChoice.message = "merci de choisir un generateur ";
                 // message = 'merci de bien vouloir choisir un generateur';
-                console.log('petit probleme')
+               
                 typeChoice.choice = false;
 
             } else if (el == 'kaamelott') {
-                console.log("la fonction choisi est ", el);
+                
                 typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice.choice = el;
             } else if (el == 'kaamelott2') {
-                console.log("la fonction choisi est ", el);
+                
                 typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice.choice = el;
             }
@@ -214,7 +214,7 @@ const Citation = {
             var valueSelect = Citation.methods.updateSelect(this.value);
 
 
-            console.log('valueSelect', valueSelect);
+           
 
             // Vérifier la valeur approprié soit "kamelot" soit "starwars"
             var nouvelleVerif = Citation.methods.checkType(valueSelect); // nouvelle fonction
@@ -222,10 +222,10 @@ const Citation = {
             // Vérifier que les conditions soient respectés
             var result = Citation.methods.verifNbcit(maValue);
 
-            console.log('result', result.result);
+           
             // Si et seulement si les conditions sont bien respecter on commence a traité la demande 
             if (result.result && nouvelleVerif.choice) {
-                console.log("je commence a traité la demande");
+                
                 // A chaque nouvel demande nous ecrasons les anciennes demande pour en crée de nouvel 
                 Citation.dom.result = '';
                 // une fois le resultat verifié on demande alors de rajouté +1 jusqu'a la valeur demandé chaque citation dans une nouvel div
@@ -268,7 +268,7 @@ const Citation = {
 
         },
         resetAction: function (el) {
-            console.log('click', el)
+            
             if (el == 'oui') {
                 // remetre a zero la page 
                 document.location.reload(true);
