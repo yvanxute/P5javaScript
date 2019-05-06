@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Générateur de citations kaamelott </title>
+
+</head>
+
+<body>
+    <h1 class="color">Générateur de citation</h1>
+    <select class= "color" name="" id="chCit" onchange="Citation.methods.checkType(this.value)" id="TAB1" tabindex="1" onkeyup="autoTab(2, this.size, this.value)">
+        <option value="default" id="option1">Choisir le type de Citation :</option>
+        <option value="kaamelott2" id="option2">kaamelott2</option>
+        <option value="kaamelott" id="option3">kaamelott</option>
+    </select>
+
+    <label class="color" for="nbCitation">Nombre de citation souhaite : </label>
+    <input type="number" id="nbCit" onchange="Citation.methods.updateNbCit(this.value)" id="TAB2" tabindex="2">
+    <div class="color" id="error"></div>
+    <p class="color" id="conditions">Conditions : Choisir le nombre de citations générées (de 1 à 5) <br/> ainsi que de choisir un type de Générateur<br/></p>
+    <ol class="color" id="result"></ol>
+    <button id="lancement" onclick="Citation.methods.init()">lancement</button>
+
+    <div id="finProgramme" class="confirmationSession hide">
+        <p class="color">Voulez-vous générées de nouvelle citation ?(oui) sinon arreter le programme(non) </p>
+        <button onclick="Citation.methods.resetAction('oui')">oui</button>
+        <button onclick="Citation.methods.resetAction('non')">non</button>
+    </div>
+    <script type="text/javascript" src="./citations.js"></script>
+</body>
+
+</html>

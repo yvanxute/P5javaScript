@@ -1,0 +1,15 @@
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+body {
+    background: url(../img/astier.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.color {
+    color: white;
+}
