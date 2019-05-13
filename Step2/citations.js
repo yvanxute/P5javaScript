@@ -175,11 +175,8 @@ const Citation = {
                 message: ""
             };
             Citation.dom.error.innerHTML = '';
-            // console.log('value select', el)
             if (el == 'default') {
                 typeChoice.message = "merci de choisir un generateur ";
-                // message = 'merci de bien vouloir choisir un generateur';
-               
                 typeChoice.choice = false;
 
             } else if (el == 'kaamelott') {
@@ -191,7 +188,6 @@ const Citation = {
                 typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
                 typeChoice.choice = el;
             }
-            //Citation.dom.error.innerHTML = message
             return typeChoice;
 
 
@@ -248,9 +244,7 @@ const Citation = {
                             Citation.data.kaamelott2.finCitation
                         );
                         Citation.methods.suiteEvent();
-                    }
-                    // var citationNb = (i+1) +"-"+ citation;
-                        
+                    }       
                     divHtml.innerHTML = citation;
                     // Chaque nouvel div(citation) aura une ID qui commance par 0 et non par 1 
                     divHtml.setAttribute("id", "citation" + i)
