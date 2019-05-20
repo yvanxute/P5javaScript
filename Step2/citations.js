@@ -172,34 +172,30 @@ const Citation = {
         checkType: function (el) {
             var typeChoice = {
                 choice: "",
-                message: ""
+                message: "",
+                el: ""
             };
             Citation.dom.error.innerHTML = '';
             if (el == 'default') {
                 typeChoice.message = "merci de choisir un generateur ";
                 typeChoice.choice = false;
-
+                typeChoice.el = el;
             } else if (el == 'kaamelott') {
                 
                 typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
-                typeChoice.choice = el;
+                typeChoice.choice = true;
+                typeChoice.el = el;
             } else if (el == 'kaamelott2') {
                 
                 typeChoice.message = 'bravo maintenant merci de bien choisir le nombre de citation a generer';
-                typeChoice.choice = el;
+                typeChoice.choice = true;
+                typeChoice.el = el;
             }
             return typeChoice;
 
 
 
 
-        },
-        // création de l'autotab
-        autoTab: function (box, longueur, texte) {
-
-            if (texte.length > longueur - 1) {
-                document.getElementById('TB' + box).focus();
-            }
         },
 
         init: function () {
