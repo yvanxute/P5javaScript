@@ -6,7 +6,7 @@
     display: block;
 }
 
-body {
+.wallpaper {
     background: url(../img/astier.jpg);
     background-repeat: no-repeat;
     background-size: cover;
