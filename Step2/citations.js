@@ -114,18 +114,18 @@ const Citation = {
         error: document.getElementById('error'),
         lancement: document.getElementById('lancement'),
         finProgramme: document.getElementById("finProgramme")
-
     },
     methods: {
         // Renvoie la description de Citation avec 3 constantes
-        formatGlobalCitation: function (el1, el2, el3) {
-            return (el1 + " " + el2 + " " + el3); // sinon  3 morceaux
+        formatGlobalCitation: function (debutCitation, milieuCitation, finCitation) {
+            return (debutCitation + " " + milieuCitation + " " + finCitation); // sinon  3 morceaux
         },
-        // retour un entier aleatoir de 1 à max
+        // retour un entier aleatoir de 1 à max dans le tableau des citations le nombre max et aleatoirement redonnée un morceau de citation
         selectIndexCitation: function (citationArray, max) {
             var index = Math.floor((Math.random() * max));
             return citationArray[index];
         },
+        // produire une citation complete aleatoirement 
         generationCitation: function (randomDebutCitation, randomMilieuCitation, randomFinCitation) {
 
             var firstElement = Citation.methods.selectIndexCitation(randomDebutCitation, randomDebutCitation.length),
@@ -140,6 +140,7 @@ const Citation = {
             // récupération la valeur
             return Citation.dom.nbCit = document.getElementById("nbCit").value;
         },
+        // verification de la valeur du nombre de citation demandée par l'utilisateur 
         verifNbcit: function (el) {
             Citation.dom.error.innerHTML = '';
             var result = {
@@ -169,6 +170,7 @@ const Citation = {
             return Citation.dom.chCit = document.getElementById("chCit").value;
         },
         // on recupere la valeur de select pour commencer a faire le choix de tableau de citation
+        // et on check le type de generateur demandé par l'utilisateur 
         checkType: function (el) {
             var typeChoice = {
                 choice: "",
@@ -192,9 +194,6 @@ const Citation = {
                 typeChoice.el = el;
             }
             return typeChoice;
-
-
-
 
         },
 
@@ -258,6 +257,7 @@ const Citation = {
             }
 
         },
+        // la function resetAction qui donne le choix à l'utilisateur de regéneré ou pas les citations 
         resetAction: function (el) {
             
             if (el == 'oui') {
@@ -269,6 +269,7 @@ const Citation = {
                 document.getElementById("finProgramme").classList.add("hide");
             };
         },
+        // la function suiteEvent est crée pour faire apparaitre ou rendre inactif les btn 
         suiteEvent: function () {
             // on fait disparaitre le btn ou on le disable
             document.getElementById("chCit").disabled = true;
