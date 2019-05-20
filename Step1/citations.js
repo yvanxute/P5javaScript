@@ -59,14 +59,15 @@ const Citation = {
     },
     methods: {
         // Renvoie la description de Citation avec 3 constantes
-        formatGlobalCitation: function (el1, el2, el3) {
-            return (el1 + " " + el2 + " " + el3); // sinon  3 morceaux
+        formatGlobalCitation: function (debutCitation, milieuCitation, finCitation) {
+            return (debutCitation + " " + milieuCitation + " " + finCitation); // sinon  3 morceaux
         },
-        // retour un entier aleatoir de 1 à max
+        // retour un entier aleatoir de 1 à max recuperation de toute les citations dans le tableau et renvoie aleatoirement une citation
         selectIndexCitation: function (citationArray, max) {
             var index = Math.floor((Math.random() * max));
             return citationArray[index];
         },
+        // resulte un citation complete avec une moreceau choisi aleatoirement 
         generationCitation: function (randomDebutCitation, randomMilieuCitation, randomFinCitation) {
 
             var firstElement = Citation.methods.selectIndexCitation(randomDebutCitation, randomDebutCitation.length),
@@ -90,6 +91,7 @@ const Citation = {
             }
     }
 };
+// la function lance automatique a l'ouverture de la page htlm le JS 
 window.onload = function() {
     Citation.methods.init();
 }
